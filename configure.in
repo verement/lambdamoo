@@ -535,14 +535,14 @@ else
     AC_CHECK_LIB(pcre, pcre_exec, [], [AC_MSG_ERROR([missing -lpcre
 *** The PCRE library cannot be found.  Try --with-included-pcre instead.])])
     AC_MSG_CHECKING(whether -lpcre was built with required features)
-    AC_RUN_IFELSE(AC_LANG_PROGRAM([[# include <pcre.h>]],
+    AC_RUN_IFELSE([AC_LANG_PROGRAM([[# include <pcre.h>]],
 	[[  int have_utf8, have_props;
 
 	    pcre_config(PCRE_CONFIG_UTF8, &have_utf8);
 	    pcre_config(PCRE_CONFIG_UNICODE_PROPERTIES, &have_props);
 
 	    return (have_utf8 && have_props) ? 0 : 1;
-	]]),
+	]])],
 	[AC_MSG_RESULT(yes)],
 	[AC_MSG_RESULT(no); AC_MSG_ERROR([-lpcre cannot be used
 *** The installed PCRE library is missing either support for UTF-8 or support
