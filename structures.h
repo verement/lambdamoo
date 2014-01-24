@@ -22,7 +22,9 @@
 
 #include "config.h"
 
-#define MAXINT	((Num) 9223372036854775807LL)
+#define MAXINT	((Num)  0x7fffffffffffffffLL)
+#define MININT	((Num) -0x8000000000000000LL)
+
 #define MAXOBJ	((Objid) MAXINT)
 
 /* Note: it's a pretty hard assumption in MOO that integers and objects
