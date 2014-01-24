@@ -300,7 +300,12 @@ SIMPLE_BINARY(multiply, *)
 		    } else if (a.type == TYPE_INT		\
 			       && b.v.num != 0) {		\
 			ans.type = TYPE_INT;			\
-			ans.v.num = a.v.num iop b.v.num;	\
+			if (a.v.num == MININT &&		\
+			    b.v.num == -1) {			\
+			    ans.v.num = 5 iop 2 == 2 ?		\
+			        a.v.num : 0;			\
+			} else					\
+			    ans.v.num = a.v.num iop b.v.num;	\
 		    } else if (a.type == TYPE_FLOAT		\
 			       && *b.v.fnum != 0.0) {		\
 			double d = fexpr;			\

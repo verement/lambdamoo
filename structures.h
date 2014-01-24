@@ -22,7 +22,9 @@
 
 #include "config.h"
 
-#define MAXINT	((int32) 2147483647L)
+#define MAXINT	((int32)  0x7fffffffL)
+#define MININT	((int32) -0x80000000L)
+
 #define MAXOBJ	((Objid) MAXINT)
 
 typedef int32 Objid;
